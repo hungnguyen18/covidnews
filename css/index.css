@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0; 
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.container{
+    margin-top: 20px;
+    width: 100%;
+    
+}
+
+#content1{
+    display: none;
+}
+
+
+.search-box{
+    border-bottom: 1px solid black;
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.search-box input{
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 3px;
+}
+
+.covid-world{
+   margin-top: 50px;
+}
+
+.row-total{
+    display: flex;
+}
+
+.colum{
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+}
+
+.country{
+    background: linear-gradient(145deg, rgb(43 85 137), rgb(23 191 230));
+    color: white;
+    border-radius: 10px;
+    margin: auto auto 30px auto;
+    height: 230px;
+    box-shadow: 0 20px 15px -3px rgb(189, 189, 189);
+    
+}
+
+.row.country{
+    width: 200px;
+}
+
+.country ul{
+    padding: 10px;
+    margin: auto;
+   
+}
+
+.country ul li{
+    text-decoration: none;
+    list-style: none;
+}
+
+.data{
+   margin-top: 50px;
+}
+
+
+
+.country ul li span{
+    color: rgb(0, 0, 0);
+    
+}
+
+#tong_canhiem{
+    color: rgb(221, 176, 26);
+    font-weight: bold;
+}
+
+#tong_tuvong{
+    color: rgb(250, 29, 0);
+    font-weight: bold;
+}
+
+#tong_phuchoi{
+    color: rgb(18, 228, 35);
+    font-weight: bold;
+}
+
+.select{
+    margin: auto auto 10px auto;
+}
+
+.details-table{
+    margin: 50px auto 50px auto;
+}
+
+.select1{
+    margin: 20px auto 20px auto;
+}
+
+.title-country{
+    font-size: 2rem;
+}
+
+.title-country span{
+    font-size: 2rem;
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  /* loader */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Add animation to "page content" */
+  .animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+  }
+  
+  @-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 } 
+    to { bottom:0px; opacity:1 }
+  }
+  
+  @keyframes animatebottom { 
+    from{ bottom:-100px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+  }
+
