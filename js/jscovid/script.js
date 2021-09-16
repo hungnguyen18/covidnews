@@ -20,7 +20,7 @@ function CovidDefault(){
         const ratio =((Number(data.locations[0].latest.deaths)/Number(data.locations[0].latest.confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
         DataCovid.innerHTML=`
             <tr>
-                <td id="quocgia">${CounTry}</td>
+                <td id="quocgia" hidden>${CounTry}</td>
                 <td>${Province || Default}</td>
                 <td id="tong_canhiem">${Confirmed}</td>
                 <td id="tong_tuvong">${Deaths}</td>
@@ -29,7 +29,7 @@ function CovidDefault(){
             </tr>
         `;
 
-        $('#title-country').text(CounTry);
+        $('#title-country').text(CounTry.toUpperCase());
         $('#total-cf').text(Confirmed );
         $('#total-dea').text(Deaths);
         $('#total-tl').text(Default);

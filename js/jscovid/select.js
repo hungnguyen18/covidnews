@@ -19,7 +19,7 @@ function SelectCf(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia">${CounTry}</td>
+                    <td id="quocgia" hidden>${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -42,7 +42,7 @@ function SelectCf(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia">${CounTry}</td>
+                    <td id="quocgia" hidden>${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -64,7 +64,7 @@ function SelectCf(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia">${CounTry}</td>
+                    <td id="quocgia" hidden>${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -95,7 +95,7 @@ function SelectDea(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia">${CounTry}</td>
+                    <td id="quocgia" hidden>${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -118,7 +118,7 @@ function SelectDea(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia">${CounTry}</td>
+                    <td id="quocgia" hidden>${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -140,7 +140,7 @@ function SelectDea(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia">${CounTry}</td>
+                    <td id="quocgia" hidden>${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -173,7 +173,7 @@ function SelectConfirmed(obj){
                 <div class="col-lg-3 col-md-6 col-sm-6" >
                         <div class="country">
                         <ul>
-                            <li><h3>${CounTry}</h3></li>
+                            <li hidden><h3>${CounTry}</h3></li>
                             <li>Dân số: <span>${Population}</span></li>
                             <li>Tỉnh/Thành phố: <span>${Province || Default1}</span></li>
                             <li>Ca nhiễm: <span id="tong_canhiem">${Confirmed}</span></li>
@@ -201,7 +201,7 @@ function SelectConfirmed(obj){
                 <div class="col-lg-3 col-md-6 col-sm-6" >
                         <div class="country">
                         <ul>
-                            <li><h3>${CounTry}</h3></li>
+                            <li hidden><h3>${CounTry}</h3></li>
                             <li>Dân số: <span>${Population}</span></li>
                             <li>Tỉnh/Thành phố: <span>${Province || Default1}</span></li>
                             <li>Ca nhiễm: <span id="tong_canhiem">${Confirmed}</span></li>
@@ -240,7 +240,7 @@ function SelectDeaths(obj){
                 <div class="col-lg-3 col-md-6 col-sm-6" >
                         <div class="country">
                         <ul>
-                            <li><h3>${CounTry}</h3></li>
+                            <li hidden><h3>${CounTry}</h3></li>
                             <li>Dân số: <span>${Population}</span></li>
                             <li>Tỉnh/Thành phố: <span>${Province || Default1}</span></li>
                             <li>Ca nhiễm: <span id="tong_canhiem">${Confirmed}</span></li>
@@ -268,7 +268,7 @@ function SelectDeaths(obj){
                 <div class="col-lg-3 col-md-6 col-sm-6" >
                         <div class="country">
                         <ul>
-                            <li><h3>${CounTry}</h3></li>
+                            <li hidden><h3>${CounTry}</h3></li>
                             <li>Dân số: <span>${Population}</span></li>
                             <li>Tỉnh/Thành phố: <span>${Province || Default}</span></li>
                             <li>Ca nhiễm: <span id="tong_canhiem">${Confirmed}</span></li>

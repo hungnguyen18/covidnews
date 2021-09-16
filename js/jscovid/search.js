@@ -24,7 +24,7 @@ SearchInput.addEventListener('change', async (e) => {
             .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
             covidcountry +=`
             <tr>
-                <td id="quocgia">${CounTry}</td>
+                <td id="quocgia" hidden>${CounTry}</td>
                 <td>${Province || Default}</td>
                 <td id="tong_canhiem">${Confirmed}</td>
                 <td id="tong_tuvong">${Deaths}</td>
@@ -33,7 +33,7 @@ SearchInput.addEventListener('change', async (e) => {
             </tr>`;
         });
         $('#data-covid').html(covidcountry);
-        $('#title-country').text(CounTry);
+        $('#title-country').text(CounTry.toUpperCase());
         $('#total-cf').text(Confirmed );
         $('#total-dea').text(Deaths);
         $('#total-tl').text((Math.round(parseInt(Deaths)/parseInt(Confirmed))*100) .toLocaleString("en", {minimumFractionDigits: 0, maximumFractionDigits:0} ) + ' %');

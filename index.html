@@ -15,7 +15,6 @@
     <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="myFunction()">
-  <div id="loader"></div>
   <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
   <div class="header" id="header">
     <header class="p-3 bg-dark text-white">
@@ -43,10 +42,11 @@
         </div>
       </header>
   </div>
+  <div id="loader"></div>
   <div class="container-fluid" id="content1">
     <div class="main-data" id="main-data">
         <div class="covid-country" id="covid-country">
-            <h3>COVID TRONG NƯỚC <i class="fas fa-flag"></i></i></h3>
+            <div class="title-country" >COVID QUỐC GIA <span id="title-country"></span> <i class="fas fa-flag"></i></div>
             <div class="search-box">
                 <i class="fas fa-search icon"></i>
                 <input type="text" name="" id="search-input" placeholder="Tìm kiếm quốc gia...">
@@ -54,8 +54,8 @@
             <div class="data-table">
                 <table class="table">
                   <thead class="table-dark">
-                  <th>Quốc gia</th>
-                  <th>Tỉnh/Thành phố</th>
+                  <th hidden>Quốc gia</th>
+                  <th>Tỉnh/TP</th>
                   <th>Ca nhiễm</th>
                   <th>Tử vong</th>
                   <th>Cập nhập</th>
@@ -67,7 +67,7 @@
             <div class="details-table">
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 details">
-                  <div class="title-country" >Quốc gia <span id="title-country"></span></div>
+                 
                   <div class="colum1">
                     <div class="name-value" id="name-value">Tổng ca nhiễm trong nước</div>
                     <div class="value"><span id="total-cf">100</span></div>
