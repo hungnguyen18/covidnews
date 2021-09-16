@@ -153,6 +153,7 @@
 
 .title-country{
     font-size: 2rem;
+    margin: 10px auto 20px auto;
 }
 
 .title-country span{
@@ -224,29 +225,4 @@
     background-color: #555; /* Add a dark-grey background on hover */
   }
 
-  .alter{
-      background: rgb(216, 204, 204);
-      width: 300px;
-      height: 200px;
-      position:absolute;
-      bottom: 100px;
-      display: block;
-      margin: auto;
-      left: 30%;
-      right: 30%;
-      border-radius: 20px;
-      display: none;
-  }
-
-  .modal1{
-      text-align: center;
-      padding: 20px;
-  }
-
-  .modal1 .tieude{
-      font-weight: bold;
-  }
-
-  .noidung{
-      margin-top: 80px;
-  }
+ 
