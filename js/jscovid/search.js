@@ -36,7 +36,7 @@ SearchInput.addEventListener('change', async (e) => {
         $('#title-country').text(CounTry.toUpperCase());
         $('#total-cf').text(Confirmed );
         $('#total-dea').text(Deaths);
-        $('#total-tl').text((Math.round(parseInt(Deaths)/parseInt(Confirmed))*100) .toLocaleString("en", {minimumFractionDigits: 0, maximumFractionDigits:0} ) + ' %');
+        $('#total-tl').text(((parseInt(Deaths)/parseInt(Confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits:2} ) + ' %');
     }
     catch{
          alert(`Không có dữ liệu về quốc gia ${e.target.value}`)
