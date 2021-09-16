@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
-   
+    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/free/png-256/stop-coronavirus-2332166-1938991.png" type="image/x-icon">
     <script src="js/all.min.js"></script>
     <script src="js/moment.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -16,6 +16,7 @@
 </head>
 <body onload="myFunction()">
   <div id="loader"></div>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
   <div class="header" id="header">
     <header class="p-3 bg-dark text-white">
         <div class="container data">
@@ -42,25 +43,26 @@
         </div>
       </header>
   </div>
-  <div class="container" id="content1">
+  <div class="container-fluid" id="content1">
     <div class="main-data" id="main-data">
         <div class="covid-country" id="covid-country">
+            <h3>COVID TRONG NƯỚC <i class="fas fa-flag"></i></i></h3>
             <div class="search-box">
                 <i class="fas fa-search icon"></i>
                 <input type="text" name="" id="search-input" placeholder="Tìm kiếm quốc gia...">
             </div>
             <div class="data-table">
                 <table class="table">
-                    <thead class="table-dark">
-                    <th>Quốc gia</th>
-                    <th>Tỉnh/Thành phố</th>
-                    <th>Ca nhiễm</th>
-                    <th>Tử vong</th>
-                    <th>Cập nhập</th>
-                    <th>% Tử vong</th>
-                    </thead>
-                    <tbody id="data-covid"></div></tbody>
-                  </table>
+                  <thead class="table-dark">
+                  <th>Quốc gia</th>
+                  <th>Tỉnh/Thành phố</th>
+                  <th>Ca nhiễm</th>
+                  <th>Tử vong</th>
+                  <th>Cập nhập</th>
+                  <th>% Tử vong</th>
+                  </thead>
+                  <tbody  id="data-covid"></div></tbody>
+                </table>
             </div>
             <div class="details-table">
               <div class="row">
@@ -99,63 +101,61 @@
               </div>
             </div>
         </div>
-        <div class="total-world" id="total-world">
-          <h3>COVID TOÀN THẾ GIỚI</h3>
-            <div class="row-total">
-              <div class="colum">
-                  <div class="name-value" id="name-value">TỔNG CA NHIỄM</div>
-                  <div class="value"><span id="tong_canhiem"></span></div>
+        <div class="covidw">
+          <div class="total-world" id="total-world">
+            <h3>COVID TOÀN THẾ GIỚI <i class="fas fa-globe-asia"></i></h3>
+              <div class="row-total">
+                <div class="colum">
+                    <div class="name-value" id="name-value">TỔNG CA NHIỄM</div>
+                    <div class="value"><span id="tong_canhiem"></span></div>
+                </div>
+                <div class="colum2">
+                    <div class="name-value" id="name-value">TỬ VONG</div>
+                    <div class="value"><span id="tong_tuvong"></span></div>
+                </div>
+                <div class="colum3">
+                  <div class="name-value" id="name-value">HỒI PHỤC</div>
+                  <div class="value"><span id="tong_phuchoi"></span></div>
+                </div>
               </div>
-              <div class="colum">
-                  <div class="name-value" id="name-value">TỬ VONG</div>
-                  <div class="value"><span id="tong_tuvong"></span></div>
-              </div>
-              <div class="colum">
-                <div class="name-value" id="name-value">HỒI PHỤC</div>
-                <div class="value"><span id="tong_phuchoi"></span></div>
-              </div>
-            </div>
-        </div>
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-        
-         
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                Lọc thông tin
-              </button>
-            </h2>
-            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-12 select">
-                    <h5>Ca lây nhiễm</h5>
-                    <select class="form-select" aria-label="Default select example" id="select-confirmed"  onchange="SelectConfirmed(this)" >
-                      <option selected>--Sắp xếp số ca lây nhiễm của quốc gia--</option>
-                      <option value="1">Từ cao đến thấp</option>
-                      <option value="2">Từ thấp đến cao</option>
-                    </select>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12 select">
-                    <h5>Ca tử vong</h5>
-                    <select class="form-select" aria-label="Default select example" id="select-deaths"  onchange="SelectDeaths(this)" >
-                      <option selected>--Sắp xếp số ca tử vong của quốc gia--</option>
-                      <option value="1">Từ cao đến thấp</option>
-                      <option value="2">Từ thấp đến cao</option>
-                    </select>
+          </div>
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  Lọc thông tin
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 select">
+                      <h5>Ca lây nhiễm</h5>
+                      <select class="form-select" aria-label="Default select example" id="select-confirmed"  onchange="SelectConfirmed(this)" >
+                        <option selected>--Sắp xếp số ca lây nhiễm của quốc gia--</option>
+                        <option value="1">Từ cao đến thấp</option>
+                        <option value="2">Từ thấp đến cao</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 select">
+                      <h5>Ca tử vong</h5>
+                      <select class="form-select" aria-label="Default select example" id="select-deaths"  onchange="SelectDeaths(this)" >
+                        <option selected>--Sắp xếp số ca tử vong của quốc gia--</option>
+                        <option value="1">Từ cao đến thấp</option>
+                        <option value="2">Từ thấp đến cao</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          
-        </div>
-        <div class="data">
-          <div class="covid-world" id="covid-world">
-            <div class="row" id="world"></div>
+          <div class="data">
+            <div class="covid-world" id="covid-world">
+              <div class="row" id="world"></div>
+            </div>
           </div>
-        </div>
+        </div>  
     </div>
   </div>
 </body>
@@ -163,6 +163,7 @@
 <script src="js/jscovid/select.js"></script>
 <script src="js/jscovid/search.js"></script>
 <script src="js/loader.js"></script>
+<script src="js/buttontop.js"></script>
 <script src="js/autocomplete.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 </html>

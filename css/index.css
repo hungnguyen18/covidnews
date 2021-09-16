@@ -5,10 +5,13 @@
     font-size: 15px;
 }
 
-.container{
-    margin-top: 20px;
+
+
+.container-fluid{
+    padding-top: 50px;
     width: 100%;
-    
+    background: rgb(219, 219, 219);
+    position: relative;
 }
 
 #content1{
@@ -29,8 +32,25 @@
     padding: 3px;
 }
 
+.covid-country{
+    width: 95%;
+    margin: auto;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.covidw{
+    width: 95%;
+    background: white;
+    margin: 30px auto auto auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+
 .covid-world{
    margin-top: 50px;
+
 }
 
 .row-total{
@@ -41,7 +61,32 @@
     width: 30%;
     text-align: center;
     padding: 10px;
+    border-bottom: 1px solid black;
+    border-left: 5px solid rgb(247, 231, 15);
+    margin:50px auto 50px auto;
+    border-radius: 20px 0px 20px 0px;
 }
+
+.colum2{
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    border-left: 5px solid rgb(247, 15, 15);
+    margin:50px auto 50px auto;
+    border-radius: 20px 0px 20px 0px;
+}
+
+.colum3{
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    border-left: 5px solid rgb(30, 255, 0);
+    margin:50px auto 50px auto;
+    border-radius: 20px 0px 20px 0px;
+}
+
 
 .country{
     background: linear-gradient(145deg, rgb(43 85 137), rgb(23 191 230));
@@ -158,4 +203,50 @@
     from{ bottom:-100px; opacity:0 } 
     to{ bottom:0; opacity:1 }
   }
+/* button-top */
+  #myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }
 
+  .alter{
+      background: rgb(216, 204, 204);
+      width: 300px;
+      height: 200px;
+      position:absolute;
+      bottom: 100px;
+      display: block;
+      margin: auto;
+      left: 30%;
+      right: 30%;
+      border-radius: 20px;
+      display: none;
+  }
+
+  .modal1{
+      text-align: center;
+      padding: 20px;
+  }
+
+  .modal1 .tieude{
+      font-weight: bold;
+  }
+
+  .noidung{
+      margin-top: 80px;
+  }
