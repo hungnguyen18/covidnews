@@ -31,7 +31,8 @@ async function chartCovidCountryDf (){
             datasets: [{
                 label: 'Ca lây nhiễm',
                 data: array30cn,
-                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgb(235, 157, 14)',
+                borderColor: 'rgb(235, 157, 14)',
                 borderWidth: 3,
                 tension: 0.1,
                 fill: false
@@ -39,6 +40,7 @@ async function chartCovidCountryDf (){
             {
                 label: 'Ca tử vong',
                 data: array30tv,
+                backgroundColor: 'rgb(255, 0, 0)',
                 borderColor: 'rgb(255, 0, 0)',
                 borderWidth: 3,
                 tension: 0.1,
