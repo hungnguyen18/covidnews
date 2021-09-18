@@ -46,23 +46,34 @@
   <div class="container-fluid" id="content1">
     <div class="main-data" id="main-data">
         <div class="covid-country" id="covid-country">
-            <div class="title-country" >COVID QUỐC GIA <span id="title-country"></span> <i class="fas fa-flag"></i></div>
-            <div class="search-box">
-                <i class="fas fa-search icon"></i>
-                <input type="text" name="" id="search-input" placeholder="Tìm kiếm quốc gia...">
-            </div>
-            <div class="data-table">
-                <table class="table">
-                  <thead class="table-dark">
-                  <th hidden>Quốc gia</th>
-                  <th>Tỉnh/TP</th>
-                  <th>Ca nhiễm</th>
-                  <th>Tử vong</th>
-                  <th>Cập nhập</th>
-                  <th>% Tử vong</th>
-                  </thead>
-                  <tbody  id="data-covid"></div></tbody>
-                </table>
+            
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12" id="dt-covidCt">
+                <div class="title-country" >COVID QUỐC GIA <span id="title-country"></span> <i class="fas fa-flag"></i></div>
+                <div class="search-box">
+                  <i class="fas fa-search icon"></i>
+                  <input type="text" name="" id="search-input" placeholder="Tìm kiếm quốc gia...">
+                </div>
+                <div class="data-table">
+                  <table class="table">
+                    <thead class="table-dark">
+                    <th hidden>Quốc gia</th>
+                    <th>Tỉnh/TP</th>
+                    <th>Ca nhiễm</th>
+                    <th>Tử vong</th>
+                    <th>Cập nhập</th>
+                    <th>% Tử vong</th>
+                    </thead>
+                    <tbody  id="data-covid">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12" id="dt-chart">
+                <h2>Thống kê ca nhiễm từng ngày</h2>
+                <canvas id="myChartCt" width="400" height="400"></canvas>
+              </div>
             </div>
             <div class="details-table">
               <div class="row">
@@ -119,46 +130,71 @@
                 </div>
               </div>
           </div>
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  Lọc thông tin
-                </button>
-              </h2>
-              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 select">
-                      <h5>Ca lây nhiễm</h5>
-                      <select class="form-select" aria-label="Default select example" id="select-confirmed"  onchange="SelectConfirmed(this)" >
-                        <option selected>--Sắp xếp số ca lây nhiễm của quốc gia--</option>
-                        <option value="1">Từ cao đến thấp</option>
-                        <option value="2">Từ thấp đến cao</option>
-                      </select>
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class="dt-covi">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        Lọc thông tin
+                      </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 col-sm-12 select">
+                            <h5>Ca lây nhiễm</h5>
+                            <select class="form-select" aria-label="Default select example" id="select-confirmed"  onchange="SelectConfirmed(this)" >
+                              <option selected>--Sắp xếp số ca lây nhiễm của quốc gia--</option>
+                              <option value="1">Từ cao đến thấp</option>
+                              <option value="2">Từ thấp đến cao</option>
+                            </select>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 select">
+                            <h5>Ca tử vong</h5>
+                            <select class="form-select" aria-label="Default select example" id="select-deaths"  onchange="SelectDeaths(this)" >
+                              <option selected>--Sắp xếp số ca tử vong của quốc gia--</option>
+                              <option value="1">Từ cao đến thấp</option>
+                              <option value="2">Từ thấp đến cao</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 select">
-                      <h5>Ca tử vong</h5>
-                      <select class="form-select" aria-label="Default select example" id="select-deaths"  onchange="SelectDeaths(this)" >
-                        <option selected>--Sắp xếp số ca tử vong của quốc gia--</option>
-                        <option value="1">Từ cao đến thấp</option>
-                        <option value="2">Từ thấp đến cao</option>
-                      </select>
-                    </div>
+                  </div>
+                </div>
+                <div class="data">
+                  <div class="covid-world" id="covid-world">
+                    <div class="row" id="world"></div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="data">
-            <div class="covid-world" id="covid-world">
-              <div class="row" id="world"></div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <canvas id="myChart" width="400" height="2000"></canvas>
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+             
             </div>
           </div>
         </div>  
     </div>
   </div>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<script src="js/jscovid/chart.js"></script>
 <script src="js/jscovid/script.js"></script>
 <script src="js/jscovid/select.js"></script>
 <script src="js/jscovid/search.js"></script>

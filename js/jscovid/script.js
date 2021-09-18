@@ -9,7 +9,7 @@ function CovidDefault(){
     fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=VN')
     .then(async res => {
         const data = await res.json();
-        
+       
 
         
         const CounTry = data.locations[0].country;
