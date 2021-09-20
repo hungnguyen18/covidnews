@@ -19,7 +19,7 @@ function SelectCf(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia" hidden>${CounTry}</td>
+                    <td id="quocgia">${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -42,7 +42,7 @@ function SelectCf(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia" hidden>${CounTry}</td>
+                    <td id="quocgia">${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -64,7 +64,7 @@ function SelectCf(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia" hidden>${CounTry}</td>
+                    <td id="quocgia">${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -95,7 +95,7 @@ function SelectDea(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia" hidden>${CounTry}</td>
+                    <td id="quocgia">${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -118,7 +118,7 @@ function SelectDea(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia" hidden>${CounTry}</td>
+                    <td id="quocgia">${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>
@@ -140,7 +140,7 @@ function SelectDea(obj){
                 .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
                 covidselect +=`
                 <tr>
-                    <td id="quocgia" hidden>${CounTry}</td>
+                    <td id="quocgia">${CounTry}</td>
                     <td>${Province || Default1}</td>
                     <td id="tong_canhiem">${Confirmed}</td>
                     <td id="tong_tuvong">${Deaths}</td>

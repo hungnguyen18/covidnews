@@ -20,7 +20,7 @@ function CovidDefault(){
         const ratio =((Number(data.locations[0].latest.deaths)/Number(data.locations[0].latest.confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
         DataCovid.innerHTML=`
             <tr>
-                <td id="quocgia" hidden>${CounTry}</td>
+                <td id="quocgia">${CounTry}</td>
                 <td>${Province || Default}</td>
                 <td id="tong_canhiem">${Confirmed}</td>
                 <td id="tong_tuvong">${Deaths}</td>
@@ -33,13 +33,13 @@ function CovidDefault(){
         $('#total-cf').text(Confirmed );
         $('#total-dea').text(Deaths);
         $('#total-tl').text(Default);
-    });
+    }).catch($('#data-covid').text('Không có kết nối sever xin hãy đợi 1 phút'));
 };
 //Hàm xuất dữ liệu covid toàn thế giới
 async function CovidWorld(){
-    const resp =await fetch ('https://coronavirus-tracker-api.herokuapp.com/v2/locations');
+    const resp =await fetch ('https://coronavirus-tracker-api.herokuapp.com/v2/locations')
+    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
     const data = await resp.json();
-    
     let nguoinhiem =new Intl.NumberFormat().format( data.latest.confirmed);
     let chet = new Intl.NumberFormat().format( data.latest.deaths);
     let phuchoi = new Intl.NumberFormat().format(data.latest.recovered);
@@ -51,7 +51,7 @@ async function CovidWorld(){
     HoiPhuc.innerHTML = phuchoi;
 
     data.locations.forEach((covid) => {
-       
+        
         const CounTry = covid.country;
         const Province = covid.province;
         const Population =new Intl.NumberFormat().format(covid.country_population);
@@ -59,7 +59,7 @@ async function CovidWorld(){
         const Deaths =new Intl.NumberFormat().format(covid.latest.deaths);
         const Recovered =new Intl.NumberFormat().format(covid.latest.recovered);
         const Update = (covid.last_updated).substring(0,10);
-       
+        
         coviddata +=`
         <div class="col-lg-3 col-md-6 col-sm-6" >
                 <div class="country">
@@ -75,7 +75,12 @@ async function CovidWorld(){
                 </div>
             </div>`;
     });
-   $('#world').html(coviddata);  
+    $('#world').html(coviddata);  
+
+   
+       
+
+    
 };
 
 
