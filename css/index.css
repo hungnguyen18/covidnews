@@ -226,7 +226,9 @@
   }
 
  .data-table{
-     overflow: auto;
+    height: 400px;
+    overflow-y: scroll;
+    overflow: auto;
  }
 
  table td{
