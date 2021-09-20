@@ -10,11 +10,13 @@ async function autoSearch (){
            tam += covid.country + ', ';
     });
     let arraytam = tam.split(', ');
-  
+    
+    const uniqueSet = new Set(arraytam);
+    const backToArray = [...uniqueSet];
 
     $("#search-input").autocomplete({
-        source : arraytam
-        
+
+        source : backToArray
     });
 
 };

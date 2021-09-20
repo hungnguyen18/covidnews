@@ -59,12 +59,12 @@
                 <div class="data-table">
                   <table class="table">
                     <thead class="table-dark">
-                    <th>Quốc gia</th>
-                    <th>Tỉnh/TP</th>
-                    <th>Ca nhiễm</th>
-                    <th>Tử vong</th>
-                    <th>Cập nhập</th>
-                    <th>% Tử vong</th>
+                      <th>Quốc gia</th>
+                      <th>Tỉnh/TP</th>
+                      <th>Ca nhiễm</th>
+                      <th>Tử vong</th>
+                      <th>Cập nhập</th>
+                      <th>% Tử vong</th>
                     </thead>
                     <tbody  id="data-covid">
                       
@@ -73,7 +73,7 @@
                 </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12" id="dt-chart">
-                <h2>Thống kê ca nhiễm 7 ngày qua </h2>
+                <h2 class="title-country">Thống kê ca nhiễm 7 ngày qua </h2>
                 <div id="chart">
                   
                   <div id="highchart" style="width:100%; height:500px;"></div>
@@ -122,15 +122,15 @@
             <h3>COVID TOÀN THẾ GIỚI <i class="fas fa-globe-asia"></i></h3>
               <div class="row-total">
                 <div class="colum">
-                    <div class="name-value" id="name-value">TỔNG CA NHIỄM</div>
+                    <div class="name-value" id="name-value">Tổng ca nhiễm</div>
                     <div class="value"><span id="tong_canhiem"></span></div>
                 </div>
                 <div class="colum2">
-                    <div class="name-value" id="name-value">TỬ VONG</div>
+                    <div class="name-value" id="name-value">Tổng tử vong</div>
                     <div class="value"><span id="tong_tuvong"></span></div>
                 </div>
                 <div class="colum3">
-                  <div class="name-value" id="name-value">HỒI PHỤC</div>
+                  <div class="name-value" id="name-value">Tổng hồi phục</div>
                   <div class="value"><span id="tong_phuchoi"></span></div>
                 </div>
               </div>
@@ -141,9 +141,6 @@
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Biểu đồ</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
@@ -190,8 +187,6 @@
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
               <div id="highchartworld" style="width:100%; height:5000px;"></div>
             </div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-             
             </div>
           </div>
         </div>  
