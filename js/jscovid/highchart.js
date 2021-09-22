@@ -1,7 +1,6 @@
 const SearchInput2 = document.getElementById('search-input');
 
 
-
 function highchartjs(arrayday, arraycf, arraydea){
 
     const chart = Highcharts.chart('highchart', {
@@ -29,7 +28,7 @@ function highchartjs(arrayday, arraycf, arraydea){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y: .0f} ca</b></td></tr>',
+                '<td style="padding:0"><b>{point.y: .0,0f} ca</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -39,6 +38,11 @@ function highchartjs(arrayday, arraycf, arraydea){
                 pointPadding: 0.2,
                 borderWidth: 0,
 
+            },
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
             }
 
         },
@@ -52,7 +56,7 @@ function highchartjs(arrayday, arraycf, arraydea){
 
         }]
     });
-
+    
 };
 
 
@@ -69,13 +73,14 @@ SearchInput2.addEventListener('change', async (e) => {
         let tv ="";
 
         data2.forEach((covid) => {
-            cn += covid.Confirmed  + ', ';
-            tv += covid.Deaths + ', ';
-            ngay += moment(covid.Date).format('DD/MM/YYYY') + ', ';
+            
+            cn += covid.Confirmed + '_';
+            tv += covid.Deaths + '_';
+            ngay += moment(covid.Date).format('DD/MM/YYYY') + '_';
         });
-        const arraycn = cn.split(', ').map(Number);
-        const arraytv = tv.split(', ').map(Number);
-        const arrayngay = ngay.split(', ');
+        const arraycn = cn.split('_').map(Number);
+        const arraytv = tv.split('_').map(Number);
+        const arrayngay = ngay.split('_');
 
         highchartjs(arrayngay.slice(arrayngay.length - 8), arraycn.slice(arraycn.length - 8), arraytv.slice(arraytv.length - 8));
 });
@@ -86,43 +91,42 @@ async function chartCovidCountryDf (){
         const resp =await fetch ('https://api.covid19api.com/total/country/vietnam');
         const data = await resp.json();
 
-
+      
 
         let cn = "";
         let ngay =  "";
         let tv ="";
 
         data.forEach((covid) => {
-            cn += covid.Confirmed + ', ';
-            tv += covid.Deaths + ', ';
-            ngay += moment(covid.Date).format('DD/MM/YYYY') + ', ';
+            cn += covid.Confirmed + '_';
+            tv += covid.Deaths + '_';
+            ngay += moment(covid.Date).format('DD/MM/YYYY') + '_';
+            
         });
-
-
-        const arraycn = cn.split(', ').map(Number);
-        const arraytv = tv.split(', ').map(Number);
-        const arrayngay = ngay.split(', ');
-     
+       
+        
+        const arraycn = cn.split('_').map(Number);
+        const arraytv = tv.split('_').map(Number);
+        const arrayngay = ngay.split('_');
         highchartjs(arrayngay.slice(arrayngay.length - 8), arraycn.slice(arraycn.length - 8), arraytv.slice(arraytv.length - 8))
 };
 
 async function chartCovidWorld (){
-    const resp =await fetch ('https://coronavirus-tracker-api.herokuapp.com/v2/locations');
+    const resp =await fetch ('https://api.covid19api.com/summary');
     const data = await resp.json();
+
 
     let quocgia = "";
     let canhiem = "";
 
 
-    data.locations.forEach((covid) => {
-        quocgia += covid.country + ', ';
-        canhiem += covid.latest.deaths + ', ';
+    data.Countries.forEach((covid) => {
+        quocgia += covid.Country + '_';
+        canhiem += covid.TotalConfirmed + '_';
 
     });
-    let arrayquocgia = quocgia.split(', ');
-    let arraycanhiem = canhiem.split(', ').map(Number);
-
-
+    let arrayquocgia = quocgia.split('_');
+    let arraycanhiem = canhiem.split('_').map(Number);
 
 
     Highcharts.chart('highchartworld', {
@@ -152,7 +156,7 @@ async function chartCovidWorld (){
             }
         },
         tooltip: {
-            valueSuffix: ' millions'
+            valueSuffix: ' Ca'
         },
         plotOptions: {
             bar: {

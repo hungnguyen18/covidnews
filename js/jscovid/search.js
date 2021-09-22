@@ -7,12 +7,13 @@ const SearchInput = document.getElementById('search-input');
 //Hàm tìm kiếm
 SearchInput.addEventListener('change', async (e) => {
     try{
+        
         const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${e.target.value}`);
         const data = await resp.json();
-    
         
         let covidcountry="";
         const CounTry = data.locations[0].country;
+        const CounTry_Code = data.locations[0].country_code;
         const Confirmed =new Intl.NumberFormat().format(data.latest.confirmed);
         const Deaths =new Intl.NumberFormat().format(data.latest.deaths);
 
@@ -35,18 +36,20 @@ SearchInput.addEventListener('change', async (e) => {
                 <td>${ratio || Default} %</td>
             </tr>`;
         });
+        $('#flag').html(`<img src="https://www.countryflags.io/${CounTry_Code}/flat/64.png">`)
         $('#data-covid').html(covidcountry);
         $('#title-country').text(CounTry.toUpperCase());
         $('#total-cf').text(Confirmed );
         $('#total-dea').text(Deaths);
-        $('#total-tl').text(((parseInt(Deaths)/parseInt(Confirmed))*100)
-        .toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits:2} ) + ' %');
+        $('#total-tl').text(`${((Number(Deaths)/Number(Confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} )} %`);
     
         
        
 
     }
     catch{
-         alert(`Không có dữ liệu về quốc gia ${e.target.value}`)
+        
+         $('#alert-err').show();
+         $('#err').text(`${e.target.value}`);
     }
 });

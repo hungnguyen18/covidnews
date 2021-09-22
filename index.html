@@ -18,44 +18,53 @@
 </head>
 <body onload="myFunction()">
   <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
-  <div class="header" id="header">
-    <header class="p-3 bg-dark text-white">
-        <div class="container data">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <span class="logo">COVID-19 NEWS</span>
-            </a>
-    
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-            </ul>
-    
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-            </form>
-    
-            <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2">Login</button>
-              <button type="button" class="btn btn-warning">Sign-up</button>
-            </div>
-          </div>
-        </div>
-      </header>
+  <div id="header">
+    <nav class="py-2 bg-light border-bottom">
+      <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li>
+        </ul>
+      </div>
+    </nav>
+    <header class="py-3 mb-4 border-bottom">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">COVID NEWS</span>
+        </a>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+      </div>
+    </header>
   </div>
+  
   <div id="loader"></div>
   <div class="container-fluid" id="content1">
     <div class="main-data" id="main-data">
         <div class="covid-country" id="covid-country">
-            
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-12" id="dt-covidCt">
-                <div class="title-country" >COVID QUỐC GIA <span id="title-country"></span> <i class="fas fa-flag"></i></div>
+                <div class="title-country" >COVID QUỐC GIA <span id="title-country"></span> <span id="flag"></span></div>
                 <div class="search-box">
                   <i class="fas fa-search icon"></i>
                   <input type="text" name="" id="search-input" placeholder="Tìm kiếm quốc gia...">
                 </div>
+                <div id="alert-err" >
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Không có dữ liệu về quốc gia <strong id="err"></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                </div>
+                
                 <div class="data-table">
                   <table class="table">
                     <thead class="table-dark">
@@ -69,35 +78,11 @@
                     <tbody  id="data-covid">
                       
                     </tbody>
+                    
                   </table>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-12" id="dt-chart">
-                <h2 class="title-country">Thống kê ca nhiễm 7 ngày qua </h2>
-                <div id="chart">
                   
-                  <div id="highchart" style="width:100%; height:500px;"></div>
                 </div>
-              </div>
-            </div>
-            <div class="details-table">
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 details">
-                 
-                  <div class="colum1">
-                    <div class="name-value" id="name-value">Tổng ca nhiễm trong nước</div>
-                    <div class="value"><span id="total-cf">100</span></div>
-                  </div>
-                  <div class="colum1">
-                    <div class="name-value" id="name-value">Tổng tử vong trong nước</div>
-                    <div class="value"><span id="total-dea">100</span></div>
-                  </div>
-                  <div class="colum1">
-                    <div class="name-value" id="name-value">% Tử vong</div>
-                    <div class="value"><span id="total-tl">100</span></div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 select-all">
+                <div class="select-all">
                   <h3>Sắp xếp thông tin</h3>
                   <div class="select1">
                     <select class="form-select" aria-label="Default select example" id="select-cf"  onchange="SelectCf(this)" >
@@ -115,23 +100,43 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-6 col-md-6 col-sm-12" id="dt-chart">
+                <h2 class="title-country">Thống kê ca nhiễm 7 ngày qua </h2>
+                <div id="chart">
+                  <div id="highchart" style="margin-top: 90px; width:100%; height:500px;"></div>
+                </div>
+                <div class="details">
+                  <div class="colum1">
+                    <div class="name-value" id="name-value">Tổng ca nhiễm trong nước</div>
+                    <div class="value"><span id="total-cf">100</span></div>
+                  </div>
+                  <div class="colum1">
+                    <div class="name-value" id="name-value">Tổng tử vong trong nước</div>
+                    <div class="value"><span id="total-dea">100</span></div>
+                  </div>
+                  <div class="colum1">
+                    <div class="name-value" id="name-value">Tỉ lệ tử vong</div>
+                    <div class="value"><span id="total-tl">100</span></div>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
         <div class="covidw">
           <div class="total-world" id="total-world">
-            <h3>COVID TOÀN THẾ GIỚI <i class="fas fa-globe-asia"></i></h3>
+            <h3>COVID TOÀN CẦU <i class="fas fa-globe-asia"></i></h3>
               <div class="row-total">
                 <div class="colum">
                     <div class="name-value" id="name-value">Tổng ca nhiễm</div>
-                    <div class="value"><span id="tong_canhiem"></span></div>
+                    <div class="value"><span id="t_canhiem" class="tong_canhiem"></span></div>
                 </div>
                 <div class="colum2">
                     <div class="name-value" id="name-value">Tổng tử vong</div>
-                    <div class="value"><span id="tong_tuvong"></span></div>
+                    <div class="value"><span id="t_tuvong" class="tong_tuvong"></span></div>
                 </div>
                 <div class="colum3">
                   <div class="name-value" id="name-value">Tổng hồi phục</div>
-                  <div class="value"><span id="tong_phuchoi"></span></div>
+                  <div class="value"><span id="t_phuchoi" class="tong_phuchoi"></span></div>
                 </div>
               </div>
           </div>
@@ -193,7 +198,6 @@
     </div>
   </div>
 </body>
-
 <script src="js/jscovid/highchart.js"></script>
 <script src="js/jscovid/script.js"></script>
 <script src="js/jscovid/select.js"></script>

@@ -14,6 +14,10 @@
     position: relative;
 }
 
+#header{
+    display: none;
+}
+
 #content1{
     display: none;
 }
@@ -89,39 +93,65 @@
 
 
 .country{
-    background: linear-gradient(145deg, rgb(43 85 137), rgb(23 191 230));
-    color: white;
+    
+    color: rgb(5, 5, 5);
     border-radius: 10px;
     margin: auto auto 30px auto;
-    height: 230px;
-    box-shadow: 0 20px 15px -3px rgb(189, 189, 189);
-    
+    height: 260px;
+    box-shadow: 5px 20px 15px -3px rgb(189, 189, 189);
+ 
+}
+
+.data-card{
+    padding: 10px;
+
+}
+
+.row-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colum-data{
+    width: 50%;
+}
+
+.name-value{
+    font-weight: bold;
 }
 
 .row.country{
     width: 200px;
 }
 
-.country ul{
-    padding: 10px;
-    margin: auto;
-   
-}
 
-.country ul li{
-    text-decoration: none;
-    list-style: none;
-}
 
 .data{
    margin-top: 50px;
 }
 
+.flag{
+    padding: 8px 0px 0px 0px;
+}
 
 
-.country ul li span{
-    color: rgb(0, 0, 0);
-    
+.tong_canhiem{
+    color: rgb(221, 176, 26);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.tong_tuvong{
+    color: rgb(250, 29, 0);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.tong_phuchoi{
+    color: rgb(18, 228, 35);
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 #tong_canhiem{
@@ -144,6 +174,14 @@
 
 .select{
     margin: auto auto 10px auto;
+}
+
+.select-all {
+    margin-top: 30px;
+}
+
+.details{
+    margin-top: 50px;
 }
 
 .details-table{
@@ -229,7 +267,7 @@
   }
 
  .data-table{
-    height: 400px;
+    height: 450px;
     overflow-y: scroll;
     overflow: auto;
  }
@@ -237,14 +275,24 @@ table tbody td{
     background: white;
 }
 
-table thead th:first-child{
-    position: sticky;
-    left: 0;
-} 
+.data-table table {
+    text-align: left;
+    position: relative;
+    overflow-y: auto; 
+ }
 
-table tbody td:first-child{
-    background: white;
+.data-table table th{
+  
     position: sticky;
-    left: 0;
-     white-space: nowrap;
+    top: 0;
+}
+ 
+
+ .country-flag{
+     display: flex;
+     padding: 5px 5px 5px 0px;
+ }
+
+ .country-flag h3{
+    padding: 15px 0px 0px 10px;
  }
