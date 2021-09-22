@@ -9,7 +9,7 @@ SearchInput.addEventListener('change', async (e) => {
     try{
         
         const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${e.target.value}`)
-        .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+        .catch($('#data-covid').text('Xin hãy đợi 1 chút'));
         const data = await resp.json();
         
         let covidcountry="";

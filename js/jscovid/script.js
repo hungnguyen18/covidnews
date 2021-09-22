@@ -15,7 +15,7 @@ const formatCash = n => {
 // Hàm mặc đinh khi vào web
 async function CovidDefault(){
     const resp =await fetch (Apiurl)
-    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    .catch($('#data-covid').text('Không có kết nối sever xin hãy đợi 1 phút'));
     const data = await resp.json();
        
 
@@ -46,8 +46,7 @@ async function CovidDefault(){
 };
 //Hàm xuất dữ liệu covid toàn thế giới
 async function CovidWorld(){
-    const resp =await fetch (Apiurl2)
-    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    const resp =await fetch (Apiurl2);
     const data = await resp.json();
 
 

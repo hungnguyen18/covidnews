@@ -81,7 +81,7 @@ function dataCard(data){
 
 async function SelectCf(obj){
     const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${$("#quocgia").text()}`)
-    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    .catch($('#data-covid').text('Xin hãy đợi 1 chút'));
     const data = await resp.json();
    
     var value = obj.value;
@@ -99,7 +99,7 @@ async function SelectCf(obj){
 };
 async function SelectDea(obj){
     const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${$("#quocgia").text()}`)
-    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    .catch($('#data-covid').text('Xin hãy đợi 1 chút'));
     const data = await resp.json();
 
    
@@ -118,7 +118,7 @@ async function SelectDea(obj){
 };
 async function SelectConfirmed(obj){
     const resp =await fetch ('https://api.covid19api.com/summary')
-    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    .catch($('#world').text('Xin hãy đợi 1 chút'));
     const data = await resp.json();
     let covidselect="";
     var value = obj.value;
@@ -136,7 +136,7 @@ async function SelectConfirmed(obj){
 };
 async function SelectDeaths(obj){
     const resp =await fetch ('https://api.covid19api.com/summary')
-    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    .catch($('#world').text('Xin hãy đợi 1 chút'));
     const data = await resp.json();
     let covidselect="";
     var value = obj.value;
