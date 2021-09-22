@@ -64,7 +64,8 @@ function highchartjs(arrayday, arraycf, arraydea){
 //Hàm tìm kiếm chart
 SearchInput2.addEventListener('change', async (e) => {
 
-    const resp2 =await fetch (`https://api.covid19api.com/total/country/${e.target.value}`);
+    const resp2 =await fetch (`https://api.covid19api.com/total/country/${e.target.value}`)
+    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
     const data2 = await resp2.json();
 
 
@@ -88,7 +89,8 @@ SearchInput2.addEventListener('change', async (e) => {
 
 
 async function chartCovidCountryDf (){
-        const resp =await fetch ('https://api.covid19api.com/total/country/vietnam');
+        const resp =await fetch ('https://api.covid19api.com/total/country/vietnam')
+        .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
         const data = await resp.json();
 
       

@@ -80,7 +80,8 @@ function dataCard(data){
 
 
 async function SelectCf(obj){
-    const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${$("#quocgia").text()}`);
+    const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${$("#quocgia").text()}`)
+    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
     const data = await resp.json();
    
     var value = obj.value;
@@ -97,7 +98,8 @@ async function SelectCf(obj){
     }
 };
 async function SelectDea(obj){
-    const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${$("#quocgia").text()}`);
+    const resp =await fetch (`https://coronavirus-tracker-api.herokuapp.com/v2/locations?country=${$("#quocgia").text()}`)
+    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
     const data = await resp.json();
 
    

@@ -1,4 +1,6 @@
 
+const Apiurl = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=VN';
+const Apiurl2 = 'https://api.covid19api.com/summary';
 const Default = '--';
 //Hàm format 
 const formatCash = n => {
@@ -10,42 +12,41 @@ const formatCash = n => {
   };
   
 
-
 // Hàm mặc đinh khi vào web
-function CovidDefault(){
-    fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=VN')
-    .then(async res => {
-        const data = await res.json();
+async function CovidDefault(){
+    const resp =await fetch (Apiurl)
+    .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    const data = await resp.json();
        
 
-        $('#alert-err').hide();
-        const CounTry = data.locations[0].country;
-        const CounTry_Code = data.locations[0].country_code;
-        const Province = data.province;
-        const Confirmed =new Intl.NumberFormat().format(data.locations[0].latest.confirmed);
-        const Deaths =new Intl.NumberFormat().format(data.locations[0].latest.deaths);
-        const Update = (data.locations[0].last_updated).substring(0,10);
-        const ratio =((Number(data.locations[0].latest.deaths)/Number(data.locations[0].latest.confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
-        $('#data-covid').html(`
-            <tr>
-                <td id="quocgia">${CounTry}</td>
-                <td>${Province || Default}</td>
-                <td class="tong_canhiem">${Confirmed}</td>
-                <td class="tong_tuvong">${Deaths}</td>
-                <td>${Update}</td>
-                <td>${ratio} %</td>
-            </tr>
-        `);
-        $('#flag').html(`<img src="https://www.countryflags.io/${CounTry_Code}/flat/64.png">`)
-        $('#title-country').text(CounTry.toUpperCase());
-        $('#total-cf').text(Confirmed );
-        $('#total-dea').text(Deaths);
-        $('#total-tl').text(`${((Number(Deaths)/Number(Confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} )} %`);
-    }).catch($('#data-covid').text('Không có kết nối sever xin hãy đợi 1 phút'));
+    $('#alert-err').hide();
+    const CounTry = data.locations[0].country;
+    const CounTry_Code = data.locations[0].country_code;
+    const Province = data.province;
+    const Confirmed =new Intl.NumberFormat().format(data.locations[0].latest.confirmed);
+    const Deaths =new Intl.NumberFormat().format(data.locations[0].latest.deaths);
+    const Update = (data.locations[0].last_updated).substring(0,10);
+    const ratio =((Number(data.locations[0].latest.deaths)/Number(data.locations[0].latest.confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} );
+    $('#data-covid').html(`
+        <tr>
+            <td id="quocgia">${CounTry}</td>
+            <td>${Province || Default}</td>
+            <td class="tong_canhiem">${Confirmed}</td>
+            <td class="tong_tuvong">${Deaths}</td>
+            <td>${Update}</td>
+            <td>${ratio} %</td>
+        </tr>
+    `);
+    $('#flag').html(`<img src="https://www.countryflags.io/${CounTry_Code}/flat/64.png">`)
+    $('#title-country').text(CounTry.toUpperCase());
+    $('#total-cf').text(Confirmed );
+    $('#total-dea').text(Deaths);
+    $('#total-tl').text(`${((Number(Deaths)/Number(Confirmed))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2} )} %`);
+   
 };
 //Hàm xuất dữ liệu covid toàn thế giới
 async function CovidWorld(){
-    const resp =await fetch ('https://api.covid19api.com/summary')
+    const resp =await fetch (Apiurl2)
     .catch($('#world').text('Không có kết nối sever xin hãy đợi 1 phút'));
     const data = await resp.json();
 
