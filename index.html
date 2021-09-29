@@ -51,76 +51,90 @@
   <div class="container-fluid" id="content1">
     <div class="main-data" id="main-data">
         <div class="covid-country" id="covid-country">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12" id="dt-covidCt">
-                <div class="title-country" >COVID QUỐC GIA <span id="title-country"></span> <span id="flag"></span></div>
-                <div class="search-box">
-                  <i class="fas fa-search icon"></i>
-                  <input type="text" name="" id="search-input" placeholder="Tìm kiếm quốc gia...">
-                </div>
-                <div id="alert-err" >
-                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    Không có dữ liệu về quốc gia <strong id="err"></strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                </div>
-                
-                <div class="data-table">
-                  <table class="table">
-                    <thead class="table-dark">
-                      <th>Quốc gia</th>
-                      <th>Tỉnh/TP</th>
-                      <th>Ca nhiễm</th>
-                      <th>Tử vong</th>
-                      <th>Cập nhập</th>
-                      <th>% Tử vong</th>
-                    </thead>
-                    <tbody  id="data-covid">
-                      
-                    </tbody>
-                    
-                  </table>
-                  
-                </div>
-                <div class="select-all">
-                  <h3>Sắp xếp thông tin</h3>
-                  <div class="select1">
-                    <select class="form-select" aria-label="Default select example" id="select-cf"  onchange="SelectCf(this)" >
-                      <option selected>--Ca lây nhiễm trong nước--</option>
-                      <option value="1">Từ cao đến thấp</option>
-                      <option value="2">Từ thấp đến cao</option>
-                    </select>
-                  </div>
-                  <div class="select1">
-                    <select class="form-select" aria-label="Default select example" id="select-dea"  onchange="SelectDea(this)" >
-                      <option selected>--Ca tử vong trong nước--</option>
-                      <option value="1">Từ cao đến thấp</option>
-                      <option value="2">Từ thấp đến cao</option>
-                    </select>
-                  </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12" id="dt-covidCt">
+              <div class="title-country" >COVID QUỐC GIA <span id="title-country"></span> <span id="flag"></span></div>
+              <div class="search-box">
+                <i class="fas fa-search icon"></i>
+                <input type="text" name="" id="search-input" placeholder="Tìm kiếm quốc gia...">
+              </div>
+              <div id="alert-err" >
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  Không có dữ liệu về quốc gia <strong id="err"></strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12" id="dt-chart">
-                <h2 class="title-country">Thống kê ca nhiễm 7 ngày qua </h2>
-                <div id="chart">
-                  <div id="highchart" style="margin-top: 90px; width:100%; height:500px;"></div>
+              
+              <div class="data-table">
+                <table class="table">
+                  <thead class="table-dark">
+                    <th>Quốc gia</th>
+                    <th>Tỉnh/TP</th>
+                    <th>Ca nhiễm</th>
+                    <th>Tử vong</th>
+                    <th>Cập nhập</th>
+                    <th>% Tử vong</th>
+                  </thead>
+                  <tbody  id="data-covid">
+                    
+                  </tbody>
+                  
+                </table>
+                
+              </div>
+              <div class="select-all">
+                <h3>Sắp xếp thông tin</h3>
+                <div class="select1">
+                  <select class="form-select" aria-label="Default select example" id="select-cf"  onchange="SelectCf(this)" >
+                    <option selected>--Ca lây nhiễm trong nước--</option>
+                    <option value="1">Từ cao đến thấp</option>
+                    <option value="2">Từ thấp đến cao</option>
+                  </select>
                 </div>
-                <div class="details">
-                  <div class="colum1">
-                    <div class="name-value" id="name-value">Tổng ca nhiễm trong nước</div>
-                    <div class="value"><span id="total-cf">100</span></div>
-                  </div>
-                  <div class="colum1">
-                    <div class="name-value" id="name-value">Tổng tử vong trong nước</div>
-                    <div class="value"><span id="total-dea">100</span></div>
-                  </div>
-                  <div class="colum1">
-                    <div class="name-value" id="name-value">Tỉ lệ tử vong</div>
-                    <div class="value"><span id="total-tl">100</span></div>
-                  </div>
+                <div class="select1">
+                  <select class="form-select" aria-label="Default select example" id="select-dea"  onchange="SelectDea(this)" >
+                    <option selected>--Ca tử vong trong nước--</option>
+                    <option value="1">Từ cao đến thấp</option>
+                    <option value="2">Từ thấp đến cao</option>
+                  </select>
                 </div>
               </div>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-12" id="dt-chart">
+              <h2 class="title-country">Thống kê ca nhiễm 7 ngày qua </h2>
+              <div id="chart">
+                <div id="highchart" style="margin-top: 90px; width:100%; height:500px;"></div>
+              </div>
+              <div class="row details">
+                <div class="row-data">
+                  <div class="colum-data">
+                      <div class="name-value">Tổng ca nhiễm trong nước</div>
+                      <div class="value" id="total-cf"></div>
+                  </div>
+                  <div class="colum-data">
+                      <div class="name-value" id="name-canhiem">Ca nhiễm mới</div>
+                      <div class="value" id="tong_canhiemnew"></div>
+                  </div>
+                </div>
+                <div class="row-data">
+                    <div class="colum-data">
+                        <div class="name-value">Tổng tử vong trong nước</div>
+                        <div class="value"><span id="total-dea"></span></div>
+                    </div>
+                    <div class="colum-data">
+                        <div class="name-value" id="name-tuvong">Tử vong mới</div>
+                        <div class="value" ><span id="tong_tuvongnew"></span></div>
+                    </div>
+                </div>
+                
+                <div class="colum-data">
+                    <div class="name-value">Tỷ lệ tử vong trong nước</div>
+                    <div class="value"><span id="total-tl"></span></div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
         </div>
         <div class="covidw">
           <div class="total-world" id="total-world">
@@ -146,6 +160,9 @@
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Biểu đồ</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
@@ -192,10 +209,12 @@
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
               <div id="highchartworld" style="width:100%; height:5000px;"></div>
             </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+              <div id="highchartpie" style="width:100%; height:100%"></div>
             </div>
           </div>
-        </div>  
-    </div>
+        </div>
+    </div>  
   </div>
 </body>
 <script src="js/jscovid/highchart.js"></script>
