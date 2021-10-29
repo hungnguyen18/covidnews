@@ -10,7 +10,7 @@
 .container-fluid{
     padding-top: 50px;
     width: 100%;
-    background: rgb(198, 198, 198);
+    background: rgb(233, 233, 233);
     position: relative;
 }
 
@@ -42,6 +42,7 @@
     background: white;
     border-radius: 15px;
     padding: 20px;
+    box-shadow: 0 20px 15px -3px rgb(189, 189, 189);
 }
 
 .covidw{
@@ -49,7 +50,7 @@
     background: rgb(255, 255, 255) ;
     opacity: 1;
     margin: 30px auto auto auto;
-  
+    box-shadow: 0 20px 15px -3px rgb(189, 189, 189);
     padding: 20px;
     border-radius: 15px;
 }
@@ -134,9 +135,21 @@
 }
 
 .flag{
-    padding: 8px 0px 0px 0px;
+    width: 30%;
+    
 }
 
+.flag_title img{
+    max-width: 10%;
+    border-radius: 25px;
+    
+}
+
+.flag img{
+    max-width: 80%;
+    border-radius: 25px;
+  
+}
 
 .tong_canhiem{
     color: rgb(221, 176, 26);
@@ -292,9 +305,11 @@ table tbody td{
 
  .country-flag{
      display: flex;
-     padding: 5px 5px 5px 0px;
+     padding: 5px 5px 10px 0px;
  }
 
  .country-flag h3{
-    padding: 15px 0px 0px 10px;
+    width:70%;
+    text-align:right;
+    font-size: 20px;
  }

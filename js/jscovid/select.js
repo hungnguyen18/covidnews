@@ -30,7 +30,7 @@ function dataCard(data){
     data.Countries.forEach((covid) => {
         
         const CounTry = covid.Country;
-        const CounTry_Code = covid.CountryCode;
+        const CounTry_Code =  covid.CountryCode.toLowerCase();
         const Confirmed =new Intl.NumberFormat().format(covid.TotalConfirmed);
         const Deaths =new Intl.NumberFormat().format(covid.TotalDeaths);
         const NewConfirmed =new Intl.NumberFormat().format(covid.NewConfirmed);
@@ -44,7 +44,7 @@ function dataCard(data){
                     <div class="country-card">
                        
                         <div class="data-card">
-                        <div class="country-flag"><div class="flag"><img src="https://www.countryflags.io/${CounTry_Code || 'us'}/flat/64.png"></div><h3>${CounTry}</h3></div>
+                        <div class="country-flag"><div class="flag"><img src="https://www.worldatlas.com/r/w425/img/flag/${CounTry_Code}-flag.jpg"></div><h3>${CounTry}</h3></div>
                             <div class="row-data">
                                 <div class="colum-data">
                                     <div class="name-value">Ca nhiễm</div>

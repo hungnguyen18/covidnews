@@ -21,7 +21,7 @@ async function CovidDefault(){
 
     $('#alert-err').hide();
     const CounTry = data.locations[0].country;
-    const CounTry_Code = data.locations[0].country_code;
+    const CounTry_Code = data.locations[0].country_code.toLowerCase();
     const Province = data.province;
     const Confirmed =new Intl.NumberFormat().format(data.locations[0].latest.confirmed);
     const Deaths =new Intl.NumberFormat().format(data.locations[0].latest.deaths);
@@ -37,7 +37,7 @@ async function CovidDefault(){
             <td>${ratio} %</td>
         </tr>
     `);
-    $('#flag').html(`<img src="https://www.countryflags.io/${CounTry_Code}/flat/64.png">`)
+    $('#flag').html(`<img src="https://www.worldatlas.com/r/w425/img/flag/${CounTry_Code}-flag.jpg">`)
     $('#title-country').text(CounTry.toUpperCase());
     $('#total-cf').text(Confirmed );
     $('#total-dea').text(Deaths);
@@ -66,7 +66,7 @@ async function CovidWorld(){
     data.Countries.forEach((covid) => {
         
         const CounTry = covid.Country;
-        const CounTry_Code = covid.CountryCode;
+        const CounTry_Code =  covid.CountryCode.toLowerCase();
         const Confirmed =new Intl.NumberFormat().format(covid.TotalConfirmed);
         const Deaths =new Intl.NumberFormat().format(covid.TotalDeaths);
         const NewConfirmed =new Intl.NumberFormat().format(covid.NewConfirmed);
@@ -78,9 +78,9 @@ async function CovidWorld(){
         <div class="col-lg-3 col-md-6 col-sm-6" >
                 <div class="country">
                     <div class="country-card">
-                       
+                    
                         <div class="data-card">
-                        <div class="country-flag"><div class="flag"><img src="https://www.countryflags.io/${CounTry_Code || 'us'}/flat/64.png"></div><h3>${CounTry}</h3></div>
+                        <div class="country-flag"><div class="flag"><img src="https://www.worldatlas.com/r/w425/img/flag/${CounTry_Code}-flag.jpg"></div><h3>${CounTry}</h3></div>
                             <div class="row-data">
                                 <div class="colum-data">
                                     <div class="name-value">Ca nhiễm</div>

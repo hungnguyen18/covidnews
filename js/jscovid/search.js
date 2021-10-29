@@ -14,7 +14,7 @@ SearchInput.addEventListener('change', async (e) => {
         
         let covidcountry="";
         const CounTry = data.locations[0].country;
-        const CounTry_Code = data.locations[0].country_code;
+        const CounTry_Code = data.locations[0].country_code.toLowerCase();
         const Confirmed =new Intl.NumberFormat().format(data.latest.confirmed);
         const Deaths =new Intl.NumberFormat().format(data.latest.deaths);
 
@@ -37,7 +37,7 @@ SearchInput.addEventListener('change', async (e) => {
                 <td>${ratio || Default} %</td>
             </tr>`;
         });
-        $('#flag').html(`<img src="https://www.countryflags.io/${CounTry_Code}/flat/64.png">`)
+        $('#flag').html(`<img src="https://www.worldatlas.com/r/w425/img/flag/${CounTry_Code}-flag.jpg">`)
         $('#data-covid').html(covidcountry);
         $('#title-country').text(CounTry.toUpperCase());
         $('#total-cf').text(Confirmed );

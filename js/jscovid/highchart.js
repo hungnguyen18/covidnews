@@ -216,15 +216,15 @@ async function chartCovidCountryDf (){
 async function chartCovidWorld (){
     const resp =await fetch ('https://api.covid19api.com/summary');
     const data = await resp.json();
-
+    
 
     let quocgia = "";
     let canhiem = "";
     let canhiemtg = (data.Global.TotalConfirmed) - (data.Global.TotalDeaths);
     let tuvongtg = data.Global.TotalDeaths;
     
-    console.log();
 
+    data.Countries.sort(function(a, b){return b.TotalConfirmed - a.TotalConfirmed});
     data.Countries.forEach((covid) => {
         quocgia += covid.Country + '_';
         canhiem += covid.TotalConfirmed + '_';
@@ -232,8 +232,8 @@ async function chartCovidWorld (){
     });
     let arrayquocgia = quocgia.split('_');
     let arraycanhiem = canhiem.split('_').map(Number);
-
-    console.log(data)
+   
+    
    chartWorldColum(arrayquocgia, arraycanhiem);
    chartWorldPie(canhiemtg, tuvongtg, 7834412631);
 
